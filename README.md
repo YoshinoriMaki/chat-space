@@ -14,7 +14,7 @@
 |username|string|null: false|
 ### Association
 - has_many :messages
-- has_many :chatrooms throgh: :users_chatrooms
+- has_many :chatrooms, through: :users_chatrooms
 - has_many :users_chatrooms
 
 ## chatroomsテーブル
@@ -24,14 +24,14 @@
 |title|string|null: false|
 ### Association
 - has_many :messages
-- has_many :users throgh: :users_chatrooms
+- has_many :users, through: :users_chatrooms
 - has_many :users_chatrooms
 
 ## users_chatroomsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|chatroom_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|chatroom|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :chatroom
@@ -42,8 +42,8 @@
 |------|----|-------|
 |text|text||
 |image|text||
-|user_id|integer|null: false, foreign_key: true|
-|chatroom_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|chatroom|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :chatroom 
