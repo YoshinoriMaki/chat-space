@@ -11,19 +11,21 @@
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|username|string|null: false, foreign_key: true|
+|username|string|null: false|
 ### Association
 - has_many :messages
 - has_many :chatrooms throgh: :users_chatrooms
+- has_many :users_chatrooms
 
 ## chatroomsテーブル
 <!-- chatroomは多-多の関係をuserと, １ー多の関係をmassageともっている -->
 |Column|Type|Options|
 |------|----|-------|
-|title|string|null: false, foreign_key: true|
+|title|string|null: false|
 ### Association
 - has_many :messages
 - has_many :users throgh: :users_chatrooms
+- has_many :users_chatrooms
 
 ## users_chatroomsテーブル
 |Column|Type|Options|
