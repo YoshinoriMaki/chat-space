@@ -1,24 +1,52 @@
 # README
+<!-- chatspace機能
+　　　user(id email password nickname)
+     chatroom(id)
+     message(id text)
+     image(id) -->
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+<!-- userは多-多の関係をchatroomと, １ー多の関係をmassageと, １ー多の関係をimageと持っている -->
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
+|username|string|null: false|
+### Association
+- has_many :messages
+- has_many :chatrooms, through: :users_chatrooms
+- has_many :users_chatrooms
 
-Things you may want to cover:
+## chatroomsテーブル
+<!-- chatroomは多-多の関係をuserと, １ー多の関係をmassageともっている -->
+|Column|Type|Options|
+|------|----|-------|
+|title|string|null: false|
+### Association
+- has_many :messages
+- has_many :users, through: :users_chatrooms
+- has_many :users_chatrooms
 
-* Ruby version
+## users_chatroomsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false, foreign_key: true|
+|chatroom|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :chatroom
 
-* System dependencies
+## messagesテーブル
+<!-- messageは １ー多の関係をuserと, １ー多の関係をchatroomと持っている -->
+|Column|Type|Options|
+|------|----|-------|
+|text|text||
+|image|text||
+|user|references|null: false, foreign_key: true|
+|chatroom|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :chatroom 
 
-* Configuration
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
