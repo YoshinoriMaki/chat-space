@@ -14,17 +14,15 @@
 |username|string|null: false|
 ### Association
 - has_many :messages
-- has_many :images
 - has_many :chatrooms throgh: :users_chatrooms
 
 ## chatroomsテーブル
-<!-- chatroomは多-多の関係をuserと, １ー多の関係をmassageと, １ー多の関係をimageと持っている -->
+<!-- chatroomは多-多の関係をuserと, １ー多の関係をmassageともっている -->
 |Column|Type|Options|
 |------|----|-------|
 |title|text|null: false|
 ### Association
 - has_many :messages
-- has_many :images
 - has_many :users throgh: :users_chatrooms
 
 ## users_chatroomsテーブル
@@ -37,34 +35,35 @@
 - belongs_to :chatroom
 
 ## messagesテーブル
-<!-- messageは多-多の関係をimageと, １ー多の関係をuserと, １ー多の関係をchatroomと持っている -->
+<!-- messageは １ー多の関係をuserと, １ー多の関係をchatroomと持っている -->
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
+|image|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
+|chatroom_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :chatroom 
-- has_many :images through: :messages_images
 
-## imagesテーブル
+<!-- ## imagesテーブル
 <!-- imageは多-多の関係をmessageと, １ー多の関係をuserと, １ー多の関係をchatroomと持っている -->
-|Column|Type|Options|
+<!-- |Column|Type|Options|
 |------|----|-------|
 |image|text|null: false|
 ### Association
 - belongs_to :user
 - belongs_to :chatroom 
-- has_many  :messages,  through:  :messages_images
+- has_many  :messages,  through:  :messages_images --> -->
 
-## messages_imagesテーブル
+<!-- ## messages_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |message_id|integer|null: false, foreign_key: true|
 |image_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :chatroom
+- belongs_to :chatroom -->
 
 
 <!-- This README would normally document whatever steps are necessary to get the
