@@ -11,7 +11,7 @@
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
+|username|string|null: false, foreign_key: true|
 ### Association
 - has_many :messages
 - has_many :chatrooms throgh: :users_chatrooms
@@ -20,7 +20,7 @@
 <!-- chatroomは多-多の関係をuserと, １ー多の関係をmassageともっている -->
 |Column|Type|Options|
 |------|----|-------|
-|title|text|null: false|
+|title|string|null: false, foreign_key: true|
 ### Association
 - has_many :messages
 - has_many :users throgh: :users_chatrooms
@@ -38,53 +38,11 @@
 <!-- messageは １ー多の関係をuserと, １ー多の関係をchatroomと持っている -->
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
-|image|text|null: false|
+|text|text||
+|image|text||
 |user_id|integer|null: false, foreign_key: true|
 |chatroom_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :chatroom 
 
-<!-- ## imagesテーブル
-<!-- imageは多-多の関係をmessageと, １ー多の関係をuserと, １ー多の関係をchatroomと持っている -->
-<!-- |Column|Type|Options|
-|------|----|-------|
-|image|text|null: false|
-### Association
-- belongs_to :user
-- belongs_to :chatroom 
-- has_many  :messages,  through:  :messages_images --> -->
-
-<!-- ## messages_imagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|message_id|integer|null: false, foreign_key: true|
-|image_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-- belongs_to :chatroom -->
-
-
-<!-- This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ... -->
