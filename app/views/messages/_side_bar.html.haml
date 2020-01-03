@@ -1,28 +1,32 @@
 .side-bar
   .side-header
     .side-header__name-function
-      .side-header__name-function__username 
-        maki
-      .side-header__name-function__contents
-        .side-contents__name-function__contents__edit-group
-        = link_to "#" do
-          = icon('fas', 'edit')
+      %h3.side-header__name-function__username 
+        = current_user.name
+      %ul.side-header__name-function__contents
+        %li.side-contents__name-function__contents__edit-group
+        = link_to do
+          = icon('fas', 'edit', class: 'icon')
         %span<>
-        .side-contents__name-function__contents__edit-account
-        = link_to "#" do
-          = icon('fas', 'cog')
+        %li.side-contents__name-function__contents__edit-account
+        = link_to edit_user_path(current_user) do
+          = icon('fas', 'cog', class: 'icon')
         
        
 
   .groups
     .groups__communities
       .groups__communities__community1
-        .groups__communities__community1__name community1
+        .groups__communities__community1__name 
+          community1
 
-        .groups__communities__community1__message first message
+        .groups__communities__community1__message 
+          first message
 
       .groups__communities__community2
-        .groups__communities__community2__name community2
+        .groups__communities__community2__name 
+          community2
 
-        .groups__communities__community2__message second message
+        .groups__communities__community2__message 
+          second message
 
