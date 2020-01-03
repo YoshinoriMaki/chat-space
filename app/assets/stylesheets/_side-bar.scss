@@ -2,14 +2,78 @@
   width: 300px;
   background-color: #253141;
   float: left;
-}
 
   .side-header {
-  height: 100px;
-  background-color: #253141;
+    height: 100px;
+    background-color: #253141;
+    align-items: center;
+    padding: 40px 20px;
+
+    &__name-function {
+      height: 20px;
+      width: 260px;
+      background-color: #333333;
+      display: flex;
+      justify-content: space-between;
+      line-height: normal;
+      
+      &__username {
+        font-size: 16px;
+        color: #ffffff;
+        font-weight: bold;
+      }
+      &__contents {
+        width: 60px;
+        display: flex;
+        justify-content: flex-end;
+       
+        a {
+          color: #ffffff;
+          padding-left:5px ;
+        }
+      }
+    }
   }
 
   .groups {
-  height: calc(100vh - 100px);
-  background-color: #2f3e51;
+    height: calc(100vh - 100px);
+    background-color: #2f3e51;
+    &__communities {
+      padding: 20px 20px 0px;
+      overflow: scroll;
+
+      &__community1 {
+      margin-bottom: 40px;
+      color: #ffffff;
+      font-style: bold;
+
+        &__name {
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+        &__message {
+          font-size: 11px;
+        }
+    }
+      &__community2 {
+      margin-bottom: 40px;
+      color: #ffffff;
+      font-style: bold;
+
+        &__name {
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+        &__message {
+       font-size: 11px;
+      }
+    }
   }
+    }
+}
+
+  
+
+  
+
+  
