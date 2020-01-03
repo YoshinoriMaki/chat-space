@@ -1,0 +1,28 @@
+.side-bar
+  .side-header
+    .side-header__name-function
+      .side-header__name-function__username 
+        maki
+      .side-header__name-function__contents
+        .side-contents__name-function__contents__edit-group
+        = link_to "#" do
+          = icon('fas', 'edit')
+        %span<>
+        .side-contents__name-function__contents__edit-account
+        = link_to "#" do
+          = icon('fas', 'cog')
+        
+       
+
+  .groups
+    .groups__communities
+      .groups__communities__community1
+        .groups__communities__community1__name community1
+
+        .groups__communities__community1__message first message
+
+      .groups__communities__community2
+        .groups__communities__community2__name community2
+
+        .groups__communities__community2__message second message
+

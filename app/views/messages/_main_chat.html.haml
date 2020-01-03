@@ -1,0 +1,49 @@
+.main-chat
+  .group-info
+    .group-info__contents
+      .group-info__contents__left-contents
+        .group-info__contents__left-contents__community-name community1
+
+        %ul.group-info__contents__left-contents__name-list 
+          Member :
+          %li.group-info__contents__left-contents__name-list__participants
+            maki
+
+      = link_to "#", class: "group-info__contents__right-content" do
+        Edit
+      
+
+
+  .message-list
+    .message-list__userdate
+      .message-list__userdate__user maki
+      .message-list__userdate__date 2019/12/26(Wed) 14:14:14
+
+    .message-list__comment こんにちは！
+
+    .message-list__userdate2
+      .message-list__userdate2__user2 maki
+      .message-list__userdate2__date2 2019/12/26(Wed) 14:14:20
+
+    .message-list__comment2 さようなら！
+
+
+  .message-form
+    .message-form__new-message#new-message
+      .message-form__new-message__input-box
+        .message-form__new-message__input-box__text#message_content
+          type a message
+        %label{class: "message-form__new-message__input-box__image"}
+          = icon('fas', 'image')
+          %input{type: "file"}
+
+      .message-form__new-message__submit-btn
+        Send
+
+
+
+
+
+
+
+
