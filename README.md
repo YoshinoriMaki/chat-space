@@ -14,27 +14,27 @@
 |username|string|null: false|
 ### Association
 - has_many :messages
-- has_many :chatrooms, through: :users_chatrooms
-- has_many :users_chatrooms
+- has_many :groups, through: :users_groups
+- has_many :users_groups
 
-## chatroomsテーブル
+## groupsテーブル
 <!-- chatroomは多-多の関係をuserと, １ー多の関係をmassageともっている -->
 |Column|Type|Options|
 |------|----|-------|
 |title|string|null: false|
 ### Association
 - has_many :messages
-- has_many :users, through: :users_chatrooms
-- has_many :users_chatrooms
+- has_many :users, through: :users_groups
+- has_many :users_groups
 
-## users_chatroomsテーブル
+## users_cgroupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
-|chatroom|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :chatroom
+- belongs_to :group
 
 ## messagesテーブル
 <!-- messageは １ー多の関係をuserと, １ー多の関係をchatroomと持っている -->
@@ -43,10 +43,10 @@
 |text|text||
 |image|text||
 |user|references|null: false, foreign_key: true|
-|chatroom|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :chatroom 
+- belongs_to :group 
 
 
 
