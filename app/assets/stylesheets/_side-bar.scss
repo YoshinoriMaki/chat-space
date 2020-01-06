@@ -38,36 +38,35 @@
   .groups {
     height: calc(100vh - 100px);
     background-color: #2f3e51;
-    &__communities {
+    &__community {
       padding: 20px 20px 0px;
       overflow: scroll;
-
-      &__community1 {
       margin-bottom: 40px;
       color: #ffffff;
       font-style: bold;
 
-        &__name {
+      &__name {
         font-size: 15px;
         margin-bottom: 5px;
       }
-        &__message {
+      
+      &__message {
           font-size: 11px;
         }
-    }
-      &__community2 {
-      margin-bottom: 40px;
-      color: #ffffff;
-      font-style: bold;
 
-        &__name {
-        font-size: 15px;
-        margin-bottom: 5px;
-      }
-        &__message {
-       font-size: 11px;
-      }
-    }
+    //   &__community2 {
+    //   margin-bottom: 40px;
+    //   color: #ffffff;
+    //   font-style: bold;
+
+    //     &__name {
+    //     font-size: 15px;
+    //     margin-bottom: 5px;
+    //   }
+    //     &__message {
+    //    font-size: 11px;
+    //   }
+    // }
   }
     }
 }
