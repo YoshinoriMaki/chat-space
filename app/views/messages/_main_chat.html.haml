@@ -15,30 +15,43 @@
 
 
   .message-list
-    .message-list__userdate
-      .message-list__userdate__user maki
-      .message-list__userdate__date 2019/12/26(Wed) 14:14:14
+    = render @messages
+    -# .message-list__userdate
+    -#   .message-list__userdate__user maki
+    -#   .message-list__userdate__date 2019/12/26(Wed) 14:14:14
 
-    .message-list__comment こんにちは！
+    -# .message-list__comment こんにちは！
 
-    .message-list__userdate2
-      .message-list__userdate2__user2 maki
-      .message-list__userdate2__date2 2019/12/26(Wed) 14:14:20
+    -# .message-list__userdate2
+    -#   .message-list__userdate2__user2 maki
+    -#   .message-list__userdate2__date2 2019/12/26(Wed) 14:14:20
 
-    .message-list__comment2 さようなら！
+    -# .message-list__comment2 さようなら！
 
 
   .message-form
-    .message-form__new-message#new-message
-      .message-form__new-message__input-box
-        .message-form__new-message__input-box__text#message_content
-          type a message
-        %label{class: "message-form__new-message__input-box__image"}
-          = icon('fas', 'image')
-          %input{type: "file"}
+    = form_for [@group, @message] do |f|
+      .message-form__new-message
+        .message-form__new-message__input-box
+          = f.text_field :text, class: 'message-form__new-message__input-box__text', placeholder: 'type a message'
+          = f.label :image, class: 'message-form__new-message__input-box__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'message-form__new-message__submit-btn'
+      
+       
 
-      .message-form__new-message__submit-btn
-        Send
+  -# .message-form
+  -#   .message-form__new-message#new-message
+  -#     .message-form__new-message__input-box
+  -#       .message-form__new-message__input-box__text#message_content
+  -#         type a message
+  -#       %label{class: "message-form__new-message__input-box__image"}
+  -#         = icon('fas', 'image')
+  -#         %input{type: "file"}
+
+  -#     .message-form__new-message__submit-btn
+  -#       Send
 
 
 
