@@ -1,10 +1,13 @@
-.message-list__userdate
-  .message-list__userdate__user
-    = message.user.name
-  .message-list__userdate__date
-    = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-.message-list__comment
-  - if message.text.present?
-    %p.message-list__comment__content
-      = message.text
-  = image_tag message.image.url, class: 'lmessage-list__comment__image' if message.image.present?
+.message-list__tutto{data: {message: {id: message.id}}}
+  .message-list__tutto__userdate
+    .message-list__tutto__userdate__user
+      = message.user.name
+    .message-list__tutto__userdate__date
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .message-list__tutto__comment
+    - if message.text.present?
+      %p.message-list__tutto__comment__content
+        = message.text
+    = image_tag message.image.url, class: 'lmessage-list__comment__image' if message.image.present?
+
+
