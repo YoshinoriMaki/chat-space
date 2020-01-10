@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
   resources :products
   devise_for :users
   root "groups#index"
@@ -9,5 +8,5 @@ Rails.application.routes.draw do
    namespace :api do
     resources :messages, only: :index, defaults: { format: 'json' }
   end
-  end
+ end
 end
