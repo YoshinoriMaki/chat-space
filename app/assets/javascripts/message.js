@@ -83,7 +83,7 @@ $('#new_message').on('submit', function(e){
   });
 
   var reloadMessages = function() {
-    last_message_id = $('.message-list:last').data("message-id");
+    last_message_id = $('.message-list__tutto:last').data("message-id");
     $.ajax({
       url: "api/messages",
       type: "GET",
@@ -97,13 +97,13 @@ $('#new_message').on('submit', function(e){
         insertHTML += buildHTML(message)
       });
       $('.message-list').append(insertHTML);
-      $('.message-list').animate({ scrollTop: $('.mmessage-list')[0].scrollHeight});
+      $('.message-list').animate({ scrollTop: $('.message-list')[0].scrollHeight});
       $("#new_message")[0].reset();
       $(".message-form__new-message__submit-btn").prop("disabled", false);
       }
     })
     .fail(function() {
-      console.log('error');
+      alert("メッセージ送信に失敗しました");
     });
   };   
  
